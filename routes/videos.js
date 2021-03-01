@@ -55,32 +55,39 @@ router.post("/updateVotes/", async (req, res) => {
 module.exports = router;
 
 
-/*router.post("/upload", async (req, res) => {
-  const { error } = validatePost(req.body);
-  if (error) {
-    console.log(error);
-    return res.send(error.details[0].message);
-  }
-  const book = new Book({
-    authorId: req.body.authorId,
+router.post("/upload", async (req, res) => {
+  
+  const video = new Video({
+	user: {
+	    _id: req.body._id,
+	    first_name: req.body.first_name,
+	    last_name: req.body.last_name,
+	    image: req.body.image,
+		subscribers: req.body.subscribers,
+	},
+    filePath: req.body.filePath,	
+	createdAt: req.body.createdAt,
+	views: req.body.views,
+	watch: req.body.watch,
+    minutes: req.body.minutes,
+    seconds: req.body.seconds,
+	hours: req.body.hours,
     title: req.body.title,
     description: req.body.description,
-    readTime: req.body.readTime,
+    tags: req.body.tags,
     category: req.body.category,
-    language: req.body.language,
-    author: req.body.author,
-    thumbnailImg: req.body.thumbnailImg,
-    pdfLink: req.body.pdfLink,
+    thumbnail: req.body.thumbnail,
+	
   });
   try {
-    const savedBook = await book.save();
+    const savedBook = await video.save();
     console.log("uploaded new book");
     res.send(savedBook);
   } catch (err) {
     res.send(err);
   }
 });
-
+/*
 router.get("/get/", async (req, res) => {
   try {
     const { category, authorId, bookId, searchText } = req.query;

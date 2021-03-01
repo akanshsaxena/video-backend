@@ -1,6 +1,23 @@
 const mongoose = require("mongoose");
 
 const videoSchema = mongoose.Schema({
+	user: {
+      _id: {
+		type: String,
+	  },
+      first_name: {
+		type: String,
+	  } ,
+      last_name:  {
+		type: String,
+	  },
+      image:  {
+		type: String,
+	  },
+      subscribers: {
+		  type: Array,
+	  },
+    },
     filePath: {
         type: String,
         required: true,
