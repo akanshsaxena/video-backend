@@ -10,7 +10,7 @@ app.use(cors());
 
 //Connect to DB
 mongoose
-  .connect('mongodb://localhost/youtube', {
+  .connect('mongodb+srv://akanshsaxena:Mongo%40723@covid19.neusj.mongodb.net/test', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
